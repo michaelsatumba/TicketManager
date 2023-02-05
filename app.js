@@ -48,5 +48,5 @@ const server = http.createServer(function (request, response) {
 		});
 	}
 });
-server.listen(3000);
-console.log('Server running at http://localhost:3000/');
+server.listen(process.env.PORT);
+console.log(`Server running at ${process.env.PORT}`);
