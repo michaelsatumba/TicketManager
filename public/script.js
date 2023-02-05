@@ -6,7 +6,10 @@ document
 		const city = document.getElementById('city').value;
 		const startDate = document.getElementById('startDate').value;
 		const url =
-			'http://localhost:3000/search?city=' + city + '&start_date=' + startDate;
+			'https://ticket-manager-eight.vercel.app/search?city=' +
+			city +
+			'&start_date=' +
+			startDate;
 
 		fetch(url)
 			.then(function (response) {
