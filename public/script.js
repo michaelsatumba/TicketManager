@@ -4,15 +4,17 @@ document
 		event.preventDefault();
 
 		const city = document.getElementById('city').value;
-		const url = 'http://localhost:3000/search?city=' + city;
-		// let html = '';
+		const startDate = document.getElementById('startDate').value;
+		const url =
+			'http://localhost:3000/search?city=' + city + '&start_date=' + startDate;
 
 		fetch(url)
 			.then(function (response) {
-				// console.log(response);
 				return response.json();
 			})
 			.then(function (data) {
+				console.log('data', data);
+				console.log(startDate);
 				const events = data.events;
 				const ctx = document.getElementById('myChart').getContext('2d');
 				const chart = new Chart(ctx, {
@@ -63,21 +65,12 @@ document
 					},
 				});
 				events.forEach(function (event) {
+					console.log(event);
 					const date = new Date(event.datetime_local);
+
 					chart.data.labels.push(date.toLocaleDateString());
 					chart.data.datasets[0].data.push(event.stats.lowest_price);
-					// html +=
-					// 	'<p>' +
-					// 	event.title +
-					// 	' at ' +
-					// 	event.venue.name +
-					// 	' on ' +
-					// 	date.toLocaleDateString() +
-					// 	'</p>' +
-					// 	'$' +
-					// 	event.stats.lowest_price;
 				});
-				// document.getElementById('results').innerHTML = html;
 				chart.update();
 			})
 			.catch(function (error) {
