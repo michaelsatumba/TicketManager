@@ -5,16 +5,9 @@ document
 
 		const city = document.getElementById('city').value;
 		const startDate = document.getElementById('startDate').value;
-		const url =
-			// 'https://ticket-manager-git-master-michaelsatumba.vercel.app' +
-			// '/search?city=' +
-			// city +
-			// '&start_date=' +
-			// startDate;
+		const url = '/search?city=' + city + '&start_date=' + startDate;
 
-			'/search?city=' + city + '&start_date=' + startDate;
-
-		fetch(url, { mode: 'cors' })
+		fetch(url)
 			.then(function (response) {
 				return response.json();
 			})
