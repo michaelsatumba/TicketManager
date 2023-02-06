@@ -12,8 +12,7 @@ document
 			// startDate;
 			'/search?city=' + city + '&start_date=' + startDate;
 
-		fetch(url)
-		mode: 'no-cors',
+		fetch(url, { mode: 'cors' })
 			.then(function (response) {
 				return response.json();
 			})
