@@ -76,8 +76,8 @@ document
 					chart.data.datasets[0].data.push(event.stats.lowest_price);
 				});
 				chart.update();
-			})
-			.catch(function (error) {
-				console.error(error);
 			});
+		// .catch(function (error) {
+		// 	console.error(error);
+		// });
 	});
